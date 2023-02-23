@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="media content-section" style="border-radius: 1rem;">
+  <div class="media-body row">
+
+    <div class="article-metadata">
+        <img class="rounded-circle article-img mb-1" src="{{ post.author.profile.dp.url }}"/>
+        <a class="mr-2" href="{% url 'user_posts' post.author %}">{{ post.author }}</a>
+        <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+    </div>
+
+    <div class="col-11">
+        <div class=" justify-content-center">
+            <h6><a class="article-title">{{ post.title }}</a></h6>
+            <p class="article-content">{{ post.content }}</p>
+        </div>
+    </div>
+
+    {% if object.author == user %}
+    <div class="col border-top btm-sec py-1 mt-2">
+      <div class="row text-center">
+        <div class="col-8">
+          Posted on {{ post.date_posted|time }}
+        </div>
+        <div class="col border-left">
+            <a class="text-secondary btn-sm" href="{% url 'post_update' object.id %}">Edit</a>
+        </div>
+        <div class="col border-left">
+            <a class="text-danger btn-sm" href="{% url 'post_delete' object.id %}">Delete</a>
+        </div>
+      </div>
+    </div>
+
+    {% else %}
+      <div class="col border-top btm-sec py-1 mt-2">
+        <div class="row text-center">
+          <div class="col">
+            Posted at {{ post.date_posted|time }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock content %}

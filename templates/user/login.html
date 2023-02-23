@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Login</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container h-100">
+    <div class="d-flex justify-content-center">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5">
+
+                <form method="post">
+                    {% csrf_token %}
+                    <legend class="border-bottom mb-3 text-center"><label class="mb-3">LOGIN</label></legend>
+                    {{ form|crispy }}
+                    <div class="justify-content-center">
+                        <input type="submit" value="Login" class="btn btn-success mb-3 px-5"/>
+                    </div>
+                </form>
+
+                <div class="border-top text-center pt-2">
+                    <small class="text-muted">
+                        Don't Have An Account?<a class="ml-2" href="{% url 'signup' %}">Sign Up Now</a>
+                    </small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

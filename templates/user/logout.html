@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Login</title>
+{% endblock title %}
+
+{% block content %}
+  <div class="container py-5 h-100">
+    <div class="d-flex justify-content-center">
+      <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card-body p-5">
+          <legend class="text-center"><label class="mb-1">You have been logged out</label></legend>
+          <div class="border-top text-center pt-2">
+            <small class="text-muted">
+              <a href="{% url 'login' %}"><h6>Log In again</h6></a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

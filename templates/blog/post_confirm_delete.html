@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  <title>Delete Post</title>
+{% endblock title %}
+
+{% block content %}
+  <div class="container h-100">
+    <div class="d-flex justify-content-center">
+      <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card-body p-5">
+          <form method="post">
+            {% csrf_token %}
+            <legend class="mb-3 text-center border-bottom">Delete Post?</legend>
+            <h5 class="text-danger">Are you sure you want to delete "{{ object.title }}" post</h5>
+            <center class="mt-4">
+              <a class="btn btn-secondary btn-sm px-5 mr-4" href="{% url 'post_detail' object.id %}">No, Go Back</a>
+              <input type="submit" value="Yes, Delete" class="btn btn-danger btn-sm px-5"/>
+            </center>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

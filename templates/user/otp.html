@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>Enter OTP</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container h-100">
+  <div class="d-flex justify-content-center">
+    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+      <div class="card-body p-5">
+        <form method="post">
+          {% csrf_token %}
+          <center><legend class="border-bottom mb-3">LOGIN</legend></center>
+          <label for="otp" class="form-label" required>Enter OTP</label>
+          <input type="text" id="otp" name="otp" class="form-control" autofocus="autofocus"/>
+          <center><input type="submit" class="btn btn-success px-5 mt-4" value="Submit"></center>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
